@@ -2,9 +2,12 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+  template: `     <div class="container mt-5 mb-5 text-center">
+                    <app-main-pages></app-main-pages>
+  `,
 })
 export class AppComponent {
-  title = 'my-project';
+  title = 'Matricualción de alumnos';
 }
+

@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 
+import {v4 as uuid} from 'uuid';
+import { Student } from '../interfaces/student.interface';
+
 @Injectable({
   providedIn: 'root'
 })
 export class StudentsService {
 
   constructor() {
-
+    this.generateRandomStudents(10);
   }
 
   students: Student[] = [];
@@ -19,15 +22,20 @@ export class StudentsService {
   }
 
   addStudent(student: Student): void {
+    student.id = uuid();
+    student.getNombreCompleto = () => `${student.nombre} ${student.apellido}`
     this.students.push(student);
   }
 
-  deleteStudent(id: String): void {
+  deleteStudent(id: String | undefined): void {
     this.students = this.students.filter(student => student.id !== id);
   }
 
   filterStudents(filter: string): Student[] {
-    return this.students.filter(student => student.getNombreCompleto().toLowerCase().includes(filter.toLowerCase()));
+    return this.students.filter(student =>
+      student.nombre.toLowerCase().includes(filter.toLowerCase()) ||
+      student.apellido.toLowerCase().includes(filter.toLowerCase())
+    );
   }
 
   generateRandomStudents(count: number): void {
@@ -42,6 +50,7 @@ export class StudentsService {
     const edad = Math.floor(Math.random() * 100);
 
     const student: Student = {
+      id: uuid(),
       nombre,
       apellido,
       edad,

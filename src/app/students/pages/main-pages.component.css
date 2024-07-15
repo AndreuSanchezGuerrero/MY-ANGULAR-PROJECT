@@ -1,9 +1,31 @@
+/* Estilos comunes para ambos contenedores */
+.container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Título principal */
+h1 {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 36px;
+  color: #333;
+  font-family: Arial, sans-serif;
+}
+
+/* Título de secciones */
 h2 {
   text-align: center;
   margin-bottom: 20px;
   color: #333;
 }
 
+/* Estilos para el input de búsqueda */
 .search-input {
   width: calc(100% - 20px);
   padding: 8px 10px;
@@ -20,6 +42,7 @@ h2 {
   outline: none;
 }
 
+/* Lista de estudiantes */
 .students-list {
   list-style-type: none;
   padding: 0;
@@ -41,6 +64,7 @@ h2 {
   background-color: #f1f1f1;
 }
 
+/* Botón de eliminar */
 .btn-delete {
   background-color: #ff4d4d;
   border: none;
@@ -54,4 +78,22 @@ h2 {
 
 .btn-delete:hover {
   background-color: #e60000;
+}
+
+/* Botón de agregar estudiante */
+.btn {
+  display: block;
+  width: 100%;
+  padding: 10px 0;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #0056b3;
 }
